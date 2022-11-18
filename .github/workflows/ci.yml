@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Set variables
         id: vars
+        working-directory: bullseye
         run: |
           echo "repository=${GITHUB_ACTOR}/$(basename ${GITHUB_REPOSITORY})" >> $GITHUB_OUTPUT
           echo "version=$(grep ' V2RAY_VERSION ' Dockerfile | awk '{print $3}')" >> $GITHUB_OUTPUT
@@ -27,10 +28,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
       - name: Build and push
         uses: docker/bake-action@master
+        env:
+          version: ${{ steps.vars.outputs.version }}
         with:
           pull: true
           push: true
           no-cache: true
           files: docker-bake.hcl
-          set: |
-            target.args.version=${{ steps.vars.outputs.version }}
