@@ -33,5 +33,6 @@ target "bullseye" {
   tags     = [
     "${repository}:latest",
     "${repository}:bullseye",
+    "${repository}:${version}",
   ]
 }

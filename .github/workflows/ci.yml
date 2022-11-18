@@ -15,6 +15,7 @@ jobs:
         id: vars
         run: |
           echo "repository=${GITHUB_ACTOR}/$(basename ${GITHUB_REPOSITORY})" >> $GITHUB_OUTPUT
+          echo "version=$(grep ' V2RAY_VERSION ' Dockerfile | awk '{print $3}')" >> $GITHUB_OUTPUT
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -31,3 +32,5 @@ jobs:
           push: true
           no-cache: true
           files: docker-bake.hcl
+          set: |
+            target.args.version=${{ steps.vars.outputs.version }}

@@ -14,7 +14,7 @@ Using
 You can use the image directly, e.g.
 
 ```bash
-docker run --rm -it chinayin/v2ray:bullseye
+docker run --rm -it chinayin/v2ray
 ```
 
 The images are built daily and have the security release enabled, so will contain any security updates released more
@@ -23,7 +23,7 @@ than 24 hours ago.
 You can also use the images as a base for your own Dockerfile:
 
 ```bash
-FROM chinayin/debian:bullseye
+FROM chinayin/v2ray
 ```
 
 ### 客户端安装

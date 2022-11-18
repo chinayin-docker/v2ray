@@ -66,7 +66,7 @@ RUN set -eux \
     install -m 644 "${TMP_DIRECTORY}/$NAME" "${V2RAY_LOCATION_ASSET}/$NAME"; \
   done \
   ## clean up
-  && rm -f "$ZIP_FILE" && rm -rf "${TMP_DIRECTORY}" \
+  && rm -rf "${TMP_DIRECTORY}" \
   ## test
   && v2ray -test \
   && echo "V2Ray $V2RAY_VERSION is installed."
