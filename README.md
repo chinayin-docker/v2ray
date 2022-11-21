@@ -23,5 +23,5 @@ than 24 hours ago.
 You can also use the images as a base for your own Dockerfile:
 
 ```bash
-FROM chinayin/debian:v2ray
+FROM chinayin/v2ray
 ```
