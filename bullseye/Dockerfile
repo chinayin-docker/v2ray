@@ -18,14 +18,15 @@ RUN if [ ${CHANGE_SOURCE} = true ]; then \
 ;fi && ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone;
 
 RUN set -eux \
+    ## add user
+    && groupadd --gid 1000 v2ray \
+    && useradd --uid 1000 --gid v2ray --shell /bin/bash --create-home v2ray \
     ## alias
-    && printf "alias ls='ls --color=auto'\nalias ll='ls -l --color=auto'\nalias l='ls -lA --color=auto'" >> /root/.bashrc \
+    && printf "alias ls='ls --color=auto'\nalias ll='ls -l --color=auto'\nalias l='ls -lA --color=auto'" >> /etc/.bashrc \
     ## set limits.conf
     && printf "* soft nofile 65536\n* hard nofile 65536\n" >> /etc/security/limits.conf \
-    && printf "elasticsearch soft memlock unlimited\nelasticsearch hard memlock unlimited\n" >> /etc/security/limits.conf \
     ## set sysctl.conf
-    && printf "vm.max_map_count=262144" >> /etc/sysctl.conf \
-    && printf "fs.file-max=65536" >> /etc/sysctl.conf \
+    && printf "vm.max_map_count=262144\nfs.file-max=65536" >> /etc/sysctl.conf \
     ## install packages
     && install_packages ca-certificates curl \
         zip unzip wget qrencode libcap2-bin dbus
