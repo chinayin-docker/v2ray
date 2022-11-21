@@ -22,7 +22,7 @@ RUN set -eux \
     && groupadd --gid 1000 v2ray \
     && useradd --uid 1000 --gid v2ray --shell /bin/bash --create-home v2ray \
     ## alias
-    && printf "alias ls='ls --color=auto'\nalias ll='ls -l --color=auto'\nalias l='ls -lA --color=auto'" >> /etc/.bashrc \
+    && printf "alias ls='ls --color=auto'\nalias ll='ls -l --color=auto'\nalias l='ls -lA --color=auto'" >> /etc/profile.d/ll.sh \
     ## set limits.conf
     && printf "* soft nofile 65536\n* hard nofile 65536\n" >> /etc/security/limits.conf \
     ## set sysctl.conf
