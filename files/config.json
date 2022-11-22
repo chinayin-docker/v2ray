@@ -9,6 +9,13 @@
       "settings": {
         "auth": "noauth"
       }
+    },
+    {
+      "port": 1087,
+      "protocol": "http",
+      "settings": {
+        "timeout": 120
+      }
     }
   ],
   "outbounds": [

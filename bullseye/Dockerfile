@@ -72,6 +72,6 @@ RUN set -eux \
   && v2ray -test \
   && echo "V2Ray $V2RAY_VERSION is installed."
 
-EXPOSE 1080
+EXPOSE 1080 1087
 
 CMD ["v2ray"]
