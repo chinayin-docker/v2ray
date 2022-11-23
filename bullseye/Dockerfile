@@ -74,4 +74,4 @@ RUN set -eux \
 
 EXPOSE 1080 1087
 
-CMD ["v2ray"]
+CMD ["v2ray","run"]
