@@ -60,7 +60,7 @@ RUN set -eux \
   && install -d "$V2RAY_LOCATION_ASSET" \
   && install -d "$LOG_PATH" \
   && echo "{}" > "${V2RAY_LOCATION_CONFIG}/config.json" \
-  && for NAME in 'v2ray' 'v2ctl'; do \
+  && for NAME in 'v2ray'; do \
     install -m 755 "${TMP_DIRECTORY}/$NAME" "${BIN_PATH}/$NAME"; \
   done \
   && for NAME in 'geoip.dat' 'geosite.dat'; do \
