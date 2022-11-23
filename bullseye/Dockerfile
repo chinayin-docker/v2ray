@@ -31,7 +31,7 @@ RUN set -eux \
     && install_packages ca-certificates curl \
         zip unzip wget qrencode libcap2-bin dbus
 
-ENV V2RAY_VERSION 4.31.0
+ENV V2RAY_VERSION 4.45.2
 ENV V2RAY_LOCATION_CONFIG /etc/v2ray
 ENV V2RAY_LOCATION_ASSET /usr/local/share/v2ray
 

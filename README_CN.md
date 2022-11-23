@@ -140,6 +140,7 @@ V2Ray 客户端从 inbound 接收到数据之后没有经过 VPS 中转，而是
 
 - 参考资料：
 
+https://www.v2fly.org/guide/install.html
 https://toutyrater.github.io
 https://github.com/v2fly/fhs-install-v2ray
 https://www.v2ray.com/chapter_02/03_routing.html
