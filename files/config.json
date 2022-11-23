@@ -1,20 +1,18 @@
 {
   "log": {
-    "loglevel": "warning"
+    "loglevel": "info"
   },
   "inbounds": [
     {
-      "port": 1080,
       "protocol": "socks",
+      "tag": "socks",
+      "port": 1080,
       "settings": {
         "auth": "noauth"
-      }
-    },
-    {
-      "port": 1087,
-      "protocol": "http",
-      "settings": {
-        "timeout": 120
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     }
   ],
@@ -22,8 +20,46 @@
     {
       "protocol": "freedom",
       "tag": "direct",
-      "settings": {
-      }
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "blocked",
+      "settings": {}
     }
-  ]
+  ],
+  "dns": {
+    "servers": [
+      "https+local://1.1.1.1/dns-query",
+      "1.1.1.1",
+      "8.8.8.8",
+      "localhost"
+    ]
+  },
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "inboundTag": [
+          "socks"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "localhost"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "ip": [
+          "geoip:private"
+        ]
+      }
+    ]
+  }
 }
