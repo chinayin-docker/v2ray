@@ -146,9 +146,27 @@ V2Ray 客户端从 inbound 接收到数据之后没有经过 VPS 中转，而是
 这样的配置生效之后，你会发现无论什么网站都无法访问。这是为什么呢？blackhole 是黑洞的意思，在 V2Ray 这里也差不多相当于是一个黑洞，就是说
 V2Ray 从 inbound 接收到数据之后发到 outbound，因为 outbound 是 blackhole，来什么吞掉什么，就是不转发到服务器或者目标网站，相当于要访问什么就阻止访问什么。
 
+##### 生成节点链接
+
+- 生成vless节点链接
+```
+vless://UUID@节点域名:443?encryption=none&security=tls&type=ws&host=节点域名&path=节点path#节点备注
+```
+
+- 生成vmess节点链接
+```json
+{"v": "2","ps": "节点备注","add": "节点域名","port": "443","id": "UUID","aid": "0","net": "ws","type": "none","host": "节点域名","path": "节点path","tls": "tls"}
+```
+
+- 生成base64
+```bash
+echo 'hello' | base64
+```
+
 ### 参考资料：
 
 - https://www.v2fly.org/guide/install.html
+- https://guide.v2fly.org
 - https://toutyrater.github.io
 - https://github.com/v2fly/fhs-install-v2ray
 - https://www.v2ray.com/chapter_02/03_routing.html
@@ -158,3 +176,4 @@ V2Ray 从 inbound 接收到数据之后发到 outbound，因为 outbound 是 bla
 - https://github.com/eycorsican/go-tun2socks
 - https://github.com/eycorsican/Mellow
 - [简单介绍一下网络连接的封锁与反封锁](https://steemit.com/cn/@v2ray/6knmmb)
+- [Docker v2ray + caddy](https://medium.com/@coorpee/docker-v2ray-caddy-3e484d6c84bc)
