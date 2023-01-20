@@ -1,7 +1,6 @@
 V2Ray Base Image
 =================
-
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chinayin-docker/v2ray/Docker%20Image%20CI)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/chinayin-docker/v2ray/ci.yml)
 ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/chinayin/v2ray?sort=semver)
 ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/chinayin/v2ray?sort=semver)
 ![Docker Pulls](https://img.shields.io/docker/pulls/chinayin/v2ray)

@@ -29,9 +29,10 @@ RUN set -eux \
     && printf "vm.max_map_count=262144\nfs.file-max=65536" >> /etc/sysctl.conf \
     ## install packages
     && install_packages ca-certificates curl \
+        net-tools iputils-ping \
         zip unzip wget qrencode libcap2-bin dbus
 
-ENV V2RAY_VERSION 5.1.0
+ENV V2RAY_VERSION 5.2.1
 ENV V2RAY_LOCATION_CONFIG /etc/v2ray
 ENV V2RAY_LOCATION_ASSET /usr/local/share/v2ray
 
