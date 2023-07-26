@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
       - name: Build and push
-        uses: docker/bake-action@v2
+        uses: docker/bake-action@v3
         env:
           version: ${{ steps.vars.outputs.version }}
         with:
