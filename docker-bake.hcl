@@ -7,7 +7,7 @@ variable "repo" {
 }
 
 group "default" {
-  targets = ["bullseye"]
+  targets = ["debian"]
 }
 
 function "platforms" {
@@ -27,9 +27,9 @@ target "_all_platforms" {
   platforms = platforms()
 }
 
-target "bookworm" {
+target "debian" {
   inherits = ["_all_platforms"]
-  context  = "bookworm"
+  context  = "debian"
   tags     = [
     "${repository}:latest",
     "${repository}:bookworm",

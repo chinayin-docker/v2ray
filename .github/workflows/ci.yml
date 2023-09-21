@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Set variables
         id: vars
-        working-directory: bullseye
+        working-directory: debian
         run: |
           echo "repository=${GITHUB_ACTOR}/$(basename ${GITHUB_REPOSITORY})" >> $GITHUB_OUTPUT
           echo "version=$(grep ' V2RAY_VERSION ' Dockerfile | awk '{print $3}')" >> $GITHUB_OUTPUT
