@@ -27,12 +27,12 @@ target "_all_platforms" {
   platforms = platforms()
 }
 
-target "bullseye" {
+target "bookworm" {
   inherits = ["_all_platforms"]
-  context  = "bullseye"
+  context  = "bookworm"
   tags     = [
     "${repository}:latest",
-    "${repository}:bullseye",
+    "${repository}:bookworm",
     "${repository}:${version}",
   ]
 }

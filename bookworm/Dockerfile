@@ -5,16 +5,14 @@
 #--------------------------------------------------------------------------
 #
 
-FROM chinayin/debian:bullseye-slim
+FROM chinayin/debian:bookworm-slim
 
 ARG CHANGE_SOURCE=true
 ENV CHANGE_SOURCE ${CHANGE_SOURCE}
 ARG TZ=Asia/Shanghai
 ENV TZ ${TZ}
 RUN if [ ${CHANGE_SOURCE} = true ]; then \
-    sed -i 's/deb.debian.org/mirrors.aliyun.com/' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.aliyun.com/' /etc/apt/sources.list && \
-    sed -i 's/security-cdn.debian.org/mirrors.aliyun.com/' /etc/apt/sources.list \
+    echo "change source." \
 ;fi && ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone;
 
 RUN set -eux \
@@ -32,7 +30,7 @@ RUN set -eux \
         net-tools iputils-ping \
         zip unzip wget qrencode libcap2-bin dbus
 
-ENV V2RAY_VERSION 5.4.0
+ENV V2RAY_VERSION 5.7.0
 ENV V2RAY_LOCATION_CONFIG /etc/v2ray
 ENV V2RAY_LOCATION_ASSET /usr/local/share/v2ray
 
