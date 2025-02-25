@@ -149,16 +149,31 @@ V2Ray 从 inbound 接收到数据之后发到 outbound，因为 outbound 是 bla
 ##### 生成节点链接
 
 - 生成vless节点链接
+
 ```
 vless://UUID@节点域名:443?encryption=none&security=tls&type=ws&host=节点域名&path=节点path#节点备注
 ```
 
 - 生成vmess节点链接
+
 ```json
-{"v": "2","ps": "节点备注","add": "节点域名","port": "443","id": "UUID","aid": "0","net": "ws","type": "none","host": "节点域名","path": "节点path","tls": "tls"}
+{
+  "v": "2",
+  "ps": "节点备注",
+  "add": "节点域名",
+  "port": "443",
+  "id": "UUID",
+  "aid": "0",
+  "net": "ws",
+  "type": "none",
+  "host": "节点域名",
+  "path": "节点path",
+  "tls": "tls"
+}
 ```
 
 - 生成base64
+
 ```bash
 echo 'hello' | base64
 ```
