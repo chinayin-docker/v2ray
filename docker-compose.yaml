@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  v2ray:
+    image: chinayin/v2ray:5.48.0
+    container_name: v2ray
+    restart: unless-stopped
+    ports:
+      - "1080:1080"
+    volumes:
+      - ./files/config.json:/etc/v2ray/config.json

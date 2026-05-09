@@ -5,7 +5,7 @@
 #--------------------------------------------------------------------------
 #
 
-FROM chinayin/debian:bookworm-slim
+FROM chinayin/debian:trixie-slim
 
 ARG CHANGE_SOURCE=true
 ENV CHANGE_SOURCE ${CHANGE_SOURCE}
@@ -30,7 +30,7 @@ RUN set -eux \
         net-tools iputils-ping \
         zip unzip wget qrencode libcap2-bin dbus
 
-ENV V2RAY_VERSION 5.28.0
+ENV V2RAY_VERSION 5.48.0
 ENV V2RAY_LOCATION_CONFIG /etc/v2ray
 ENV V2RAY_LOCATION_ASSET /usr/local/share/v2ray
 
