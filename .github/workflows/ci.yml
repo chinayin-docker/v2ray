@@ -16,7 +16,7 @@ jobs:
         working-directory: debian
         run: |
           echo "repository=${GITHUB_ACTOR}/$(basename ${GITHUB_REPOSITORY})" >> $GITHUB_OUTPUT
-          echo "version=$(grep 'V2RAY_VERSION' Dockerfile | sed 's/.*V2RAY_VERSION[= ]*//')" >> $GITHUB_OUTPUT
+          echo "version=$(grep '^ENV V2RAY_VERSION' Dockerfile | sed 's/.*V2RAY_VERSION[= ]*//')" >> $GITHUB_OUTPUT
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
