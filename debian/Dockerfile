@@ -8,9 +8,9 @@
 FROM chinayin/debian:trixie-slim
 
 ARG CHANGE_SOURCE=true
-ENV CHANGE_SOURCE ${CHANGE_SOURCE}
+ENV CHANGE_SOURCE=${CHANGE_SOURCE}
 ARG TZ=Asia/Shanghai
-ENV TZ ${TZ}
+ENV TZ=${TZ}
 RUN if [ ${CHANGE_SOURCE} = true ]; then \
     echo "change source." \
 ;fi && ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone;
@@ -30,9 +30,9 @@ RUN set -eux \
         net-tools iputils-ping \
         zip unzip wget qrencode libcap2-bin dbus
 
-ENV V2RAY_VERSION 5.48.0
-ENV V2RAY_LOCATION_CONFIG /etc/v2ray
-ENV V2RAY_LOCATION_ASSET /usr/local/share/v2ray
+ENV V2RAY_VERSION=5.48.0
+ENV V2RAY_LOCATION_CONFIG=/etc/v2ray
+ENV V2RAY_LOCATION_ASSET=/usr/local/share/v2ray
 
 RUN set -eux \
   && BIN_PATH="/usr/local/bin" \
