@@ -17,6 +17,12 @@
           "tls"
         ]
       }
+    },
+    {
+      "protocol": "http",
+      "tag": "http-in",
+      "port": 1081,
+      "settings": {}
     }
   ],
   "outbounds": [
@@ -46,7 +52,8 @@
         "type": "field",
         "outboundTag": "direct",
         "inboundTag": [
-          "socks"
+          "socks",
+          "http-in"
         ]
       },
       {
